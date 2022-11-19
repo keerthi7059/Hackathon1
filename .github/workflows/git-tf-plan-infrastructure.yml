@@ -6,7 +6,7 @@ on:
       - development
 jobs:
   terraform:
-    name: "terraform-development"
+    name: "terraform"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
