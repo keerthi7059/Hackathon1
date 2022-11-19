@@ -1,0 +1,29 @@
+### create the infrastructure plan
+name: "Build_TF_Plan"
+on:
+  push:
+    branches:
+      - development
+jobs:
+  terraform:
+    name: "terraform"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+      
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        id: plan
+        if: github.event_name=='push'
+        run: terraform plan -no-color
