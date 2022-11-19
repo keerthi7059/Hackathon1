@@ -14,7 +14,7 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/development')
         uses: devops-infra/action-pull-request@v0.5.3
         with:
-          #github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           title: ${{ github.event.commits[0].message }}
           assignee: ${{ github.actor }}
           label: automatic,feature
