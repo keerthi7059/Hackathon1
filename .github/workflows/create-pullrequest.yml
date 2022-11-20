@@ -14,11 +14,19 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/development')
         uses: devops-infra/action-pull-request@v0.5.3
         with:
+<<<<<<< HEAD
           #github_token: ${{ secrets.GITHUB_TOKEN }}
+=======
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+>>>>>>> 5a4745633f1cebd2231a304d45aae8c7f41e5ce7
           title: ${{ github.event.commits[0].message }}
           assignee: ${{ github.actor }}
           label: automatic,feature
          # template: .github/PULL_REQUEST_TEMPLATE/FEATURE.md
           old_string: "**Write you description here**"
           new_string: ${{ github.event.commits[0].message }}
+<<<<<<< HEAD
           get_diff: true
+=======
+          get_diff: true
+>>>>>>> 5a4745633f1cebd2231a304d45aae8c7f41e5ce7
